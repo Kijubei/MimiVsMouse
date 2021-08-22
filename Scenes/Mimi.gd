@@ -64,8 +64,9 @@ func walkState(_delta):
 	else:
 		velocity = velocity.move_toward(Vector3(0,-1,0), friction)
 		
-	if velocity.x != 0 and velocity.z != 0:
-		animationPlayer.play("Cat_walk")
+	if velocity.x != 0 or velocity.z != 0:
+		if !animationPlayer.is_playing():
+			animationPlayer.play("Cat_walk")
 	else:
 		# doesnt work
 		animationPlayer.play("Cat_idle")
@@ -122,20 +123,23 @@ func pounceState(_delta):
 	if !isPouncing:
 		applyPounce()
 	
-	animationPlayer.play("Cat_jump")
-	
 	moveByVelocity()
+	
+	if animationPlayer.current_animation_position > 0.4:
+		animationPlayer.stop(false)
 	
 	# needed somehow ...
 	grounded = is_on_floor()
 	
 	if grounded:
+		animationPlayer.play()
 		state = walk
 		isPouncing = false
 		
 
 func applyPounce():
 	isPouncing = true
+	animationPlayer.play("Cat_jump")
 	velocity *= pounceSpeedMultiplier
 	velocity.y += pounceJumpForce
 	velocity.z = clamp(velocity.z, -maxSpeed, maxSpeed)
@@ -153,15 +157,18 @@ func jumpState(_delta):
 	if grounded:
 		velocity.y += jumpForce
 		energyBar.value -= energyBar.step*200
-	
-	animationPlayer.play("Cat_jump")
-	
+		animationPlayer.play("Cat_jump")
+
+	if animationPlayer.current_animation_position > 0.4:
+		animationPlayer.stop(false)
+		
 	moveByVelocity()
 	
 	# needed somehow ...
 	grounded = is_on_floor()
 	
 	if grounded:
+		animationPlayer.play()
 		state = walk
 
 ########## HELPER FUNC ##########
