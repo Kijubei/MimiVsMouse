@@ -17,37 +17,34 @@ albedo_color = Color( 0.14902, 0.388235, 0.454902, 1 )
 
 [sub_resource type="CylinderMesh" id=5]
 
-[sub_resource type="SpatialMaterial" id=13]
+[sub_resource type="SpatialMaterial" id=6]
 transmission_enabled = true
-transmission = Color( 1, 0, 0, 1 )
-refraction_enabled = true
-refraction_scale = 0.05
-refraction_texture_channel = 0
+transmission = Color( 0, 1, 0.219608, 1 )
 
-[sub_resource type="CylinderShape" id=6]
+[sub_resource type="CylinderShape" id=7]
 
-[sub_resource type="ProceduralSky" id=7]
+[sub_resource type="ProceduralSky" id=8]
 sun_longitude = 180.0
 
-[sub_resource type="Environment" id=8]
+[sub_resource type="Environment" id=9]
 background_mode = 2
-background_sky = SubResource( 7 )
+background_sky = SubResource( 8 )
 ssao_enabled = true
 glow_enabled = true
 glow_bloom = 0.2
 
-[sub_resource type="SphereMesh" id=9]
+[sub_resource type="SphereMesh" id=10]
 
-[sub_resource type="SpatialMaterial" id=12]
+[sub_resource type="SpatialMaterial" id=11]
 emission_enabled = true
 emission = Color( 1, 0, 0, 1 )
 emission_energy = 10.86
 emission_operator = 0
 emission_on_uv2 = false
 
-[sub_resource type="SphereShape" id=10]
+[sub_resource type="SphereShape" id=12]
 
-[sub_resource type="DynamicFont" id=11]
+[sub_resource type="DynamicFont" id=13]
 size = 26
 outline_size = 1
 outline_color = Color( 0, 0, 0, 1 )
@@ -69,7 +66,6 @@ mesh = SubResource( 3 )
 material/0 = SubResource( 4 )
 
 [node name="Mimi" parent="." instance=ExtResource( 1 )]
-transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1.80413, 0 )
 
 [node name="DirectionalLight" type="DirectionalLight" parent="."]
 transform = Transform( 1, 0, 0, 0, 0.799737, 0.60035, 0, -0.60035, 0.799737, 0, 0, 0 )
@@ -80,10 +76,10 @@ transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 5.73797, -10.8528 )
 
 [node name="MeshInstance" type="MeshInstance" parent="Topf"]
 mesh = SubResource( 5 )
-material/0 = SubResource( 13 )
+material/0 = SubResource( 6 )
 
 [node name="CollisionShape" type="CollisionShape" parent="Topf"]
-shape = SubResource( 6 )
+shape = SubResource( 7 )
 
 [node name="Wände" type="Node" parent="."]
 
@@ -147,19 +143,19 @@ transform = Transform( -0.424264, 0, 0.707107, 0, 0.8, 0, -0.424264, 0, -0.70710
 color = Color( 0.286275, 0.14902, 0.0392157, 0.745098 )
 
 [node name="WorldEnvironment" type="WorldEnvironment" parent="."]
-environment = SubResource( 8 )
+environment = SubResource( 9 )
 
 [node name="Ball" type="RigidBody" parent="."]
 transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -4.40652, 7.28473, -15.5359 )
 
 [node name="MeshInstance" type="MeshInstance" parent="Ball"]
 transform = Transform( 2, 0, 0, 0, 2, 0, 0, 0, 2, 0, 0, 0 )
-mesh = SubResource( 9 )
-material/0 = SubResource( 12 )
+mesh = SubResource( 10 )
+material/0 = SubResource( 11 )
 
 [node name="CollisionShape" type="CollisionShape" parent="Ball"]
 transform = Transform( 2, 0, 0, 0, 2, 0, 0, 0, 2, 0, 0, 0 )
-shape = SubResource( 10 )
+shape = SubResource( 12 )
 
 [node name="Maus" parent="." instance=ExtResource( 3 )]
 transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 7.63432, 0.2, -25.6071 )
@@ -170,7 +166,7 @@ margin_left = 412.0
 margin_top = 250.0
 margin_right = 612.0
 margin_bottom = 350.0
-custom_fonts/normal_font = SubResource( 11 )
+custom_fonts/normal_font = SubResource( 13 )
 text = "Maus gefangen! Spiel gewonnen!"
 fit_content_height = true
 script = ExtResource( 5 )
@@ -178,5 +174,5 @@ __meta__ = {
 "_edit_use_anchors_": false
 }
 
-[connection signal="mouseCaught" from="Maus" to="RichTextLabel" method="_on_Maus_mouseCaught"]
 [connection signal="mouseCaught" from="Maus" to="Mimi" method="_on_Maus_mouseCaught"]
+[connection signal="mouseCaught" from="Maus" to="RichTextLabel" method="_on_Maus_mouseCaught"]
