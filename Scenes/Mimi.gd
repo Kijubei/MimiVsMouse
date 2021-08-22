@@ -23,6 +23,7 @@ const vLookSensibility = 1.0
 onready var cam = $CamBase
 onready var energyBar = $EnergyBar
 onready var restTimer = $RestTimer
+onready var animationPlayer = $Mimi_walk_run_jump_idle/AnimationPlayer
 
 var state = walk
 var velocity = Vector3.ZERO
@@ -61,7 +62,13 @@ func walkState(_delta):
 	if inputVector != Vector3.ZERO:
 		velocity = velocity.move_toward(inputVector * walkSpeed, acceleration)
 	else:
-		velocity = velocity.move_toward(Vector3.ZERO, friction)
+		velocity = velocity.move_toward(Vector3(0,-1,0), friction)
+		
+	if velocity.x != 0 and velocity.z != 0:
+		animationPlayer.play("Cat_walk")
+	else:
+		# doesnt work
+		animationPlayer.play("Cat_idle")
 
 	moveByVelocity()
 		
@@ -88,6 +95,8 @@ func sprintState(_delta):
 	else:
 		velocity = velocity.move_toward(Vector3.ZERO, friction)
 
+	animationPlayer.play("Cat_run")
+
 	moveByVelocity()
 		
 	if grounded and Input.is_action_just_released("sprint"):
@@ -112,6 +121,8 @@ func fitForPounce() -> bool:
 func pounceState(_delta):
 	if !isPouncing:
 		applyPounce()
+	
+	animationPlayer.play("Cat_jump")
 	
 	moveByVelocity()
 	
@@ -143,6 +154,8 @@ func jumpState(_delta):
 		velocity.y += jumpForce
 		energyBar.value -= energyBar.step*200
 	
+	animationPlayer.play("Cat_jump")
+	
 	moveByVelocity()
 	
 	# needed somehow ...
@@ -168,6 +181,7 @@ func applyInput() -> Vector3:
 	return inputVector
 
 func moveByVelocity():
+	#bug: bei walk state ist gravity nicht richtig
 	velocity.y -= gravity
 	velocity = move_and_slide(velocity, Vector3(0,1,0))
 

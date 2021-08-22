@@ -6,7 +6,8 @@
 [sub_resource type="CapsuleShape" id=1]
 radius = 0.747787
 
-[sub_resource type="CapsuleMesh" id=2]
+[sub_resource type="Animation" id=2]
+resource_name = "Cat_idle"
 
 [node name="Mimi" type="KinematicBody"]
 collision_layer = 3
@@ -24,11 +25,6 @@ visible = false
 transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 2, 6 )
 current = true
 
-[node name="MeshInstance" type="MeshInstance" parent="."]
-visible = false
-mesh = SubResource( 2 )
-material/0 = null
-
 [node name="EnergyBar" type="ProgressBar" parent="."]
 margin_left = 20.0
 margin_top = 20.0
@@ -44,9 +40,12 @@ __meta__ = {
 wait_time = 4.0
 one_shot = true
 
-[node name="MimiRig" parent="." instance=ExtResource( 2 )]
+[node name="Mimi_walk_run_jump_idle" parent="." instance=ExtResource( 2 )]
 transform = Transform( -1, 0, -8.74228e-08, 0, 1, 0, 8.74228e-08, 0, -1, 0, 0, 0 )
+
+[node name="AnimationPlayer" parent="Mimi_walk_run_jump_idle" index="1"]
+anims/Cat_idle = SubResource( 2 )
 
 [connection signal="timeout" from="RestTimer" to="." method="_on_RestTimer_timeout"]
 
-[editable path="MimiRig"]
+[editable path="Mimi_walk_run_jump_idle"]
