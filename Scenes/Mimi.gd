@@ -23,7 +23,7 @@ const vLookSensibility = 1.0
 onready var cam = $CamBase
 onready var energyBar = $EnergyBar
 onready var restTimer = $RestTimer
-onready var animationPlayer = $Mimi_walk_run_jump_idle/AnimationPlayer
+onready var animationPlayer = $MimiAnimation/AnimationPlayer
 
 var state = walk
 var velocity = Vector3.ZERO
@@ -64,12 +64,12 @@ func walkState(_delta):
 	else:
 		velocity = velocity.move_toward(Vector3(0,-1,0), friction)
 		
-	if velocity.x != 0 or velocity.z != 0:
-		if !animationPlayer.is_playing():
+	if !(jumpAnimation() and animationPlayer.is_playing()):
+		if velocity.x != 0 or velocity.z != 0:
 			animationPlayer.play("Cat_walk")
-	else:
-		# doesnt work
-		animationPlayer.play("Cat_idle")
+		else:
+			# doesnt work
+			animationPlayer.play("Cat_idle")
 
 	moveByVelocity()
 		
@@ -196,6 +196,9 @@ func rest():
 	if exhausted:
 		energyBar.modulate = Color(1,0,0,1)
 		restTimer.start()
+
+func jumpAnimation() -> bool:
+	return animationPlayer.current_animation == "Cat_jump"
 
 func _on_RestTimer_timeout():
 	if exhausted:
