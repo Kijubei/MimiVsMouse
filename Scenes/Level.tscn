@@ -176,5 +176,5 @@ __meta__ = {
 "_edit_use_anchors_": false
 }
 
-[connection signal="mouseCaught" from="Maus" to="RichTextLabel" method="_on_Maus_mouseCaught"]
 [connection signal="mouseCaught" from="Maus" to="Mimi" method="_on_Maus_mouseCaught"]
+[connection signal="mouseCaught" from="Maus" to="RichTextLabel" method="_on_Maus_mouseCaught"]
