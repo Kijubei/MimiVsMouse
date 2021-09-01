@@ -1,4 +1,4 @@
-[gd_scene load_steps=20 format=2]
+[gd_scene load_steps=21 format=2]
 
 [ext_resource path="res://Scenes/Mimi.tscn" type="PackedScene" id=1]
 [ext_resource path="res://Scenes/Wand.tscn" type="PackedScene" id=2]
@@ -6,6 +6,7 @@
 [ext_resource path="res://Assets/Fonts/arial.ttf" type="DynamicFontData" id=4]
 [ext_resource path="res://Scenes/RichTextLabel.gd" type="Script" id=5]
 [ext_resource path="res://Scenes/Level.gd" type="Script" id=6]
+[ext_resource path="res://Scenes/Regal.tscn" type="PackedScene" id=7]
 
 [sub_resource type="PhysicsMaterial" id=1]
 
@@ -143,6 +144,9 @@ color = Color( 0.286275, 0.14902, 0.0392157, 0.745098 )
 [node name="Schrank5" parent="Wände/Schränke" instance=ExtResource( 2 )]
 transform = Transform( -0.424264, 0, 0.707107, 0, 0.8, 0, -0.424264, 0, -0.707107, 14.5525, 5, 18.8768 )
 color = Color( 0.286275, 0.14902, 0.0392157, 0.745098 )
+
+[node name="Regal" parent="Wände/Schränke" instance=ExtResource( 7 )]
+transform = Transform( -0.707107, 0, -0.707107, 0, 1, 0, 0.707107, 0, -0.707107, 9, 0, 13 )
 
 [node name="WorldEnvironment" type="WorldEnvironment" parent="."]
 environment = SubResource( 9 )
