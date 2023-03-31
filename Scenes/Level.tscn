@@ -1,4 +1,4 @@
-[gd_scene load_steps=21 format=2]
+[gd_scene load_steps=22 format=2]
 
 [ext_resource path="res://Scenes/Mimi.tscn" type="PackedScene" id=1]
 [ext_resource path="res://Scenes/Wand.tscn" type="PackedScene" id=2]
@@ -8,65 +8,60 @@
 [ext_resource path="res://Scenes/Level.gd" type="Script" id=6]
 [ext_resource path="res://Scenes/Regal.tscn" type="PackedScene" id=7]
 
-[sub_resource type="PhysicsMaterial" id=1]
+[sub_resource type="CylinderMesh" id=1]
 
-[sub_resource type="BoxShape" id=2]
-
-[sub_resource type="PlaneMesh" id=3]
-
-[sub_resource type="SpatialMaterial" id=4]
-albedo_color = Color( 0.14902, 0.388235, 0.454902, 1 )
-
-[sub_resource type="CylinderMesh" id=5]
-
-[sub_resource type="SpatialMaterial" id=6]
+[sub_resource type="SpatialMaterial" id=2]
 transmission_enabled = true
 transmission = Color( 0, 1, 0.219608, 1 )
 
-[sub_resource type="CylinderShape" id=7]
+[sub_resource type="CylinderShape" id=3]
 
-[sub_resource type="ProceduralSky" id=8]
+[sub_resource type="ProceduralSky" id=4]
 sun_longitude = 180.0
 
-[sub_resource type="Environment" id=9]
+[sub_resource type="Environment" id=5]
 background_mode = 2
-background_sky = SubResource( 8 )
+background_sky = SubResource( 4 )
 ssao_enabled = true
 glow_enabled = true
 glow_bloom = 0.2
 
-[sub_resource type="SphereMesh" id=10]
+[sub_resource type="SphereMesh" id=6]
 
-[sub_resource type="SpatialMaterial" id=11]
+[sub_resource type="SpatialMaterial" id=7]
 emission_enabled = true
 emission = Color( 1, 0, 0, 1 )
 emission_energy = 10.86
 emission_operator = 0
 emission_on_uv2 = false
 
-[sub_resource type="SphereShape" id=12]
+[sub_resource type="SphereShape" id=8]
 
-[sub_resource type="DynamicFont" id=13]
+[sub_resource type="DynamicFont" id=9]
 size = 26
 outline_size = 1
 outline_color = Color( 0, 0, 0, 1 )
 extra_spacing_top = 13
 font_data = ExtResource( 4 )
 
+[sub_resource type="NavigationMesh" id=10]
+vertices = PoolVector3Array( -49.5, 20.5, -49.25, -49.75, 20.5, -49.5, -50.5, 20.5, -49.5, -50.5, 20.5, -43.5, -49.5, 20.5, -43.25, -49.5, 20.5, -50.5, -49.75, 20.5, -49.5, -49.5, 20.5, -49.25, -43.75, 20.5, -49.5, -43.5, 20.5, -50.5, 49.5, 20.5, 49.25, 49.75, 20.5, 49.75, 50.5, 20.5, 49.5, 50.5, 20.5, 43.25, 49.5, 20.5, 43, -50.5, 20.5, 18.5, -49.5, 20.5, 18.75, -49.5, 20.5, 12.5, -50.5, 20.5, 12.25, -49.75, 20.5, 49.5, -49.5, 20.5, 50.5, -49.25, 20.5, 49.5, -49.5, 20.5, 43.5, -49.5, 20.5, 6.25, -50.5, 20.5, 6, -50.5, 20.5, 12.25, -49.5, 20.5, 12.5, -43.5, 20.5, -50.5, -43.75, 20.5, -49.5, -37.5, 20.5, -49.5, -37.25, 20.5, -50.5, 37.25, 20.5, 50.5, 43.5, 20.5, 50.5, 43.5, 20.5, 49.5, 37.25, 20.5, 49.5, -37.25, 20.5, -50.5, -37.5, 20.5, -49.5, -31.25, 20.5, -49.5, -31, 20.5, -50.5, 37.25, 20.5, 49.5, 31, 20.5, 49.5, 31, 20.5, 50.5, 37.25, 20.5, 50.5, -31, 20.5, -50.5, -31.25, 20.5, -49.5, -25, 20.5, -49.5, -24.75, 20.5, -50.5, 49.5, 20.5, 49.25, 43.5, 20.5, 49.5, 43.5, 20.5, 50.5, 49.75, 20.5, 50.5, 49.75, 20.5, 49.75, -24.75, 20.5, -50.5, -25, 20.5, -49.5, -19, 20.5, -49.5, -18.75, 20.5, -50.5, -50.5, 20.5, 6, -49.5, 20.5, 6.25, -49.5, 20.5, 0.25, -50.5, 20.5, 0, -18.75, 20.5, -50.5, -19, 20.5, -49.5, -12.75, 20.5, -49.5, -12.5, 20.5, -50.5, 31, 20.5, 50.5, 31, 20.5, 49.5, 25, 20.5, 49.5, 24.75, 20.5, 50.5, -12.5, 20.5, -50.5, -12.75, 20.5, -49.5, -6.5, 20.5, -49.5, -6.25, 20.5, -50.5, 24.75, 20.5, 50.5, 25, 20.5, 49.5, 18.75, 20.5, 49.5, 18.5, 20.5, 50.5, -6.25, 20.5, -50.5, -6.5, 20.5, -49.5, -0.250004, 20.5, -49.5, -3.8147e-06, 20.5, -50.5, 18.5, 20.5, 50.5, 18.75, 20.5, 49.5, 12.5, 20.5, 49.5, 12.25, 20.5, 50.5, -3.8147e-06, 20.5, -50.5, -0.250004, 20.5, -49.5, 5.75, 20.5, -49.5, 6, 20.5, -50.5, -50.5, 20.5, 24.75, -49.5, 20.5, 25, -49.5, 20.5, 18.75, -50.5, 20.5, 18.5, 6, 20.5, -50.5, 5.75, 20.5, -49.5, 12, 20.5, -49.5, 12.25, 20.5, -50.5, 12.25, 20.5, 50.5, 12.5, 20.5, 49.5, 6.25, 20.5, 49.5, 6, 20.5, 50.5, 12.25, 20.5, -50.5, 12, 20.5, -49.5, 18.25, 20.5, -49.5, 18.5, 20.5, -50.5, 6, 20.5, 50.5, 6.25, 20.5, 49.5, 0.249996, 20.5, 49.5, -3.8147e-06, 20.5, 50.5, 18.5, 20.5, -50.5, 18.25, 20.5, -49.5, 24.5, 20.5, -49.5, 24.75, 20.5, -50.5, -49.5, 20.5, -6, -50.5, 20.5, -6.25, -50.5, 20.5, 0, -49.5, 20.5, 0.25, 24.75, 20.5, -50.5, 24.5, 20.5, -49.5, 30.5, 20.5, -49.5, 31, 20.5, -50.5, -49.5, 20.5, 25, -50.5, 20.5, 24.75, -50.5, 20.5, 30.75, -49.5, 20.5, 31, 31, 20.5, -50.5, 30.5, 20.5, -49.5, 36.75, 20.5, -49.5, 37.25, 20.5, -50.5, -49.5, 20.5, -12.25, -50.5, 20.5, -12.5, -50.5, 20.5, -6.25, -49.5, 20.5, -6, 37.25, 20.5, -50.5, 36.75, 20.5, -49.5, 43, 20.5, -49.5, 43.5, 20.5, -50.5, -49.5, 20.5, -18.5, -50.5, 20.5, -18.75, -50.5, 20.5, -12.5, -49.5, 20.5, -12.25, 49.75, 20.5, -50.5, 43.5, 20.5, -50.5, 43, 20.5, -49.5, 49.25, 20.5, -49.5, 49.75, 20.5, -49.75, -50.5, 20.5, -18.75, -49.5, 20.5, -18.5, -49.5, 20.5, -24.5, -50.5, 20.5, -24.75, 50.5, 20.5, 37, 49.5, 20.5, 36.75, 49.5, 20.5, 43, 50.5, 20.5, 43.25, 50.5, 20.5, -49.5, 49.75, 20.5, -49.75, 49.25, 20.5, -49.5, 49.5, 20.5, -43.75, 50.5, 20.5, -43.5, -50.5, 20.5, 49.5, -49.75, 20.5, 49.5, -49.5, 20.5, 43.5, -50.5, 20.5, 43.25, -50.5, 20.5, 37, -49.5, 20.5, 37.25, -49.5, 20.5, 31, -50.5, 20.5, 30.75, 50.5, 20.5, -43.5, 49.5, 20.5, -43.75, 49.5, 20.5, -37.5, 50.5, 20.5, -37.25, -3.8147e-06, 20.5, 50.5, 0.249996, 20.5, 49.5, -6, 20.5, 49.5, -6.25, 20.5, 50.5, 50.5, 20.5, -37.25, 49.5, 20.5, -37.5, 49.5, 20.5, -31.25, 50.5, 20.5, -31, -6.25, 20.5, 50.5, -6, 20.5, 49.5, -12.25, 20.5, 49.5, -12.5, 20.5, 50.5, 50.5, 20.5, -31, 49.5, 20.5, -31.25, 49.5, 20.5, -25, 50.5, 20.5, -24.75, -12.5, 20.5, 50.5, -12.25, 20.5, 49.5, -18.5, 20.5, 49.5, -18.75, 20.5, 50.5, 50.5, 20.5, -24.75, 49.5, 20.5, -25, 49.5, 20.5, -19, 50.5, 20.5, -18.75, -49.5, 20.5, -30.75, -50.5, 20.5, -31, -50.5, 20.5, -24.75, -49.5, 20.5, -24.5, 50.5, 20.5, -18.75, 49.5, 20.5, -19, 49.5, 20.5, -12.75, 50.5, 20.5, -12.5, -18.75, 20.5, 50.5, -18.5, 20.5, 49.5, -24.5, 20.5, 49.5, -24.75, 20.5, 50.5, 50.5, 20.5, -12.5, 49.5, 20.5, -12.75, 49.5, 20.5, -6.5, 50.5, 20.5, -6.25, -50.5, 20.5, 43.25, -49.5, 20.5, 43.5, -49.5, 20.5, 37.25, -50.5, 20.5, 37, 50.5, 20.5, -6.25, 49.5, 20.5, -6.5, 49.5, 20.5, -0.25, 50.5, 20.5, 0, -24.75, 20.5, 50.5, -24.5, 20.5, 49.5, -30.75, 20.5, 49.5, -31, 20.5, 50.5, 50.5, 20.5, 0, 49.5, 20.5, -0.25, 49.5, 20.5, 5.75, 50.5, 20.5, 6, -49.5, 20.5, -37, -50.5, 20.5, -37.25, -50.5, 20.5, -31, -49.5, 20.5, -30.75, 50.5, 20.5, 6, 49.5, 20.5, 5.75, 49.5, 20.5, 12, 50.5, 20.5, 12.25, -31, 20.5, 50.5, -30.75, 20.5, 49.5, -37, 20.5, 49.5, -37.25, 20.5, 50.5, 50.5, 20.5, 12.25, 49.5, 20.5, 12, 49.5, 20.5, 18.25, 50.5, 20.5, 18.5, -37.25, 20.5, 50.5, -37, 20.5, 49.5, -43.25, 20.5, 49.5, -43.5, 20.5, 50.5, 50.5, 20.5, 18.5, 49.5, 20.5, 18.25, 49.5, 20.5, 24.5, 50.5, 20.5, 24.75, -43.5, 20.5, 50.5, -43.25, 20.5, 49.5, -49.25, 20.5, 49.5, -49.5, 20.5, 50.5, 50.5, 20.5, 24.75, 49.5, 20.5, 24.5, 49.5, 20.5, 30.5, 50.5, 20.5, 30.75, -49.5, 20.5, -43.25, -50.5, 20.5, -43.5, -50.5, 20.5, -37.25, -49.5, 20.5, -37, 50.5, 20.5, 30.75, 49.5, 20.5, 30.5, 49.5, 20.5, 36.75, 50.5, 20.5, 37, -41, 0.5, -48.25, -48.25, 0.5, -48.25, -48.25, 0.5, -40.25, -48.25, 0.5, -32, -35, 0.5, -31.75, -35, 0.5, -33.25, -48.25, 0.5, -32, -35, 0.5, -33.25, -33.75, 0.5, -33.5, -33.75, 0.5, -48.25, -41, 0.5, -48.25, -48.25, 0.5, -40.25, -23.75, 0.5, -14, -14.5, 0.5, -14, -11.75, 0.5, -16.5, -32.75, 0.5, -23.75, -32.75, 0.5, -14, -23.75, 0.5, -14, -23.75, 0.5, -14, -11.75, 0.5, -16.5, -10.75, 0.5, -16.75, -33.75, 0.5, -48.25, -33.75, 0.5, -33.5, -32.75, 0.5, -33.25, -22.25, 0.5, -48.25, -32.75, 0.5, -33.25, -32.75, 0.5, -23.75, -23.75, 0.5, -14, -10.75, 0.5, -16.75, -10.75, 0.5, -48.25, -22.25, 0.5, -48.25, -9.75, 0.5, -16, -9.75, 0.5, -14.75, 1.75, 0.5, -13.5, 2, 0.5, -14, -3.75, 0.5, -48.25, -10.75, 0.5, -48.25, -10.75, 0.5, -16.75, -10.75, 0.5, -16.75, -9.75, 0.5, -16, 2, 0.5, -14, 3.5, 0.5, -14, 3.25, 0.5, -48.25, -3.75, 0.5, -48.25, 12.25, 0.5, -48.25, 3.25, 0.5, -48.25, 3.5, 0.5, -14, 12.25, 0.5, -14, 21.25, 0.5, -14, 21.5, 0.5, -48.25, 12.25, 0.5, -48.25, 12.25, 0.5, -14, 48.5, 0.5, -39.5, 48.5, 0.5, -48.25, 41.75, 0.5, -48.25, 48.5, 0.5, -39.5, 41.75, 0.5, -48.25, 35, 0.5, -48.25, 48.5, 0.5, -39.5, 35, 0.5, -48.25, 28.25, 0.5, -48.25, 48.5, 0.5, -30.75, 22.75, 0.5, -14, 23, 0.5, -13, 48.5, 0.5, -13, 48.5, 0.5, -22, 21.25, 0.5, -14, 22.75, 0.5, -14, 48.5, 0.5, -22, 48.5, 0.5, -30.75, 28.25, 0.5, -48.25, 21.5, 0.5, -48.25, -34, 10.5, -23, -33.75, 10.5, -13.5, -33.75, 10.5, -23.25, -34, 10.5, -32.5, -35, 0.5, -31.75, -48.25, 0.5, -32, -48.25, 0.5, -23, -35, 0.5, -23, -35, 0.5, -14, -35, 0.5, -23, -48.25, 0.5, -23, -48.25, 0.5, -13.75, -11.5, 0.5, -12.75, -13.25, 0.5, -12.25, -13.5, 0.5, -11.75, 2, 0.5, -11.75, 2, 0.5, -11.75, 1.75, 0.5, -13.5, -9.75, 0.5, -14.75, -11.5, 0.5, -12.75, 15.5, 0.5, 6, 9, 0.5, -11.75, 2, 0.5, -11.75, -12.75, 0.5, 22, 1.25, 0.5, 21, 1.25, 0.5, 20.25, -19.75, 0.5, 15, -13.5, 0.5, -11.75, -26.75, 0.5, 8, -19.75, 0.5, 15, 1.25, 0.5, 20.25, 15.5, 0.5, 6, 2, 0.5, -11.75, 15.5, 0.5, 6, 16, 0.5, 6, 16, 0.5, -11.75, 9, 0.5, -11.75, -13.5, 0.5, -11.75, -20.5, 0.5, -11.75, -26.75, 0.5, 8, -27.25, 0.5, -11.75, -27.25, 0.5, 8, -26.75, 0.5, 8, -20.5, 0.5, -11.75, 1.25, 0.5, 20.25, 8.5, 0.5, 13.25, 15.5, 0.5, 6, -35, 0.5, -12.5, -35, 0.5, -14, -48.25, 0.5, -13.75, -34.25, 0.5, -11.75, -35, 0.5, -12.5, -48.25, 0.5, -13.75, -48.25, 0.5, -2.25, -48.25, 0.5, 9.25, -28.75, 0.5, 9.25, -28, 0.5, 8, -27.25, 0.5, -11.75, -34.25, 0.5, -11.75, -48.25, 0.5, -2.25, -28, 0.5, 8, -27.25, 0.5, 8, -27.25, 0.5, -11.75, 16, 0.5, -11.75, 16, 0.5, 6, 16.5, 0.5, 6, 22.75, 0.5, -11.75, 16, 0.5, -11.75, 16.5, 0.5, 6, 17.5, 0.5, 7.5, 48.5, 0.5, 7.5, 48.5, 0.5, -2.75, 48.5, 0.5, -13, 23, 0.5, -13, 22.75, 0.5, -11.75, 48.5, 0.5, -2.75, 24.5, 9.5, -2.75, 32.5, 9.5, 5, 32.5, 9.5, 4.5, 24.5, 9.5, -3.25, 2.5, 10.5, 20.5, 2.75, 10.5, 21, 9.5, 10.5, 14.25, 9.25, 10.5, 14, 15.75, 10.5, 7.25, 9.25, 10.5, 14, 9.5, 10.5, 14.25, 16.25, 10.5, 7.5, 37, 0.5, 48.5, 48.5, 0.5, 48.5, 48.5, 0.5, 38.25, 17.5, 0.5, 7.5, 10.25, 0.5, 14.75, 3.25, 0.5, 22, 37, 0.5, 48.5, 48.5, 0.5, 38.25, 48.5, 0.5, 28, 25.5, 0.5, 48.5, 3.25, 0.5, 22, 2.75, 0.5, 22, 2.75, 0.5, 48.5, 14, 0.5, 48.5, 3.25, 0.5, 22, 14, 0.5, 48.5, 25.5, 0.5, 48.5, 48.5, 0.5, 28, 48.5, 0.5, 17.75, 17.5, 0.5, 7.5, 48.5, 0.5, 17.75, 48.5, 0.5, 7.5, 17.5, 0.5, 7.5, -14.25, 10.5, 22.75, -13.75, 10.5, 22.75, -20.5, 10.5, 15.75, -20.75, 10.5, 16, -20.5, 10.5, 15.75, -27.5, 10.5, 9, -27.5, 10.5, 9.5, -20.75, 10.5, 16, -48.25, 0.5, 38.5, -48.25, 0.5, 48.5, -39.75, 0.5, 48.5, -28.75, 0.5, 9.75, -28.75, 0.5, 9.25, -48.25, 0.5, 9.25, -48.25, 0.5, 19, -48.25, 0.5, 38.5, -39.75, 0.5, 48.5, -31.25, 0.5, 48.5, -48.25, 0.5, 28.75, -14.5, 0.5, 24, -21.5, 0.5, 16.75, -28.75, 0.5, 9.75, -28.75, 0.5, 9.75, -48.25, 0.5, 19, -48.25, 0.5, 28.75, -31.25, 0.5, 48.5, -22.75, 0.5, 48.5, -14.5, 0.5, 24, -14, 0.5, 48.5, -14, 0.5, 24, -14.5, 0.5, 24, -22.75, 0.5, 48.5, 10.5, 9.5, 15.25, 18.5, 9.5, 23, 18.5, 9.5, 22.5, 10.5, 9.5, 14.75, 1.25, 0.5, 21, -12.75, 0.5, 22, -12.5, 0.5, 23, 2, 0.5, 22, -14, 0.5, 24, -14, 0.5, 48.5, -5.75, 0.5, 48.5, 2.75, 0.5, 22, 2, 0.5, 22, -12.5, 0.5, 23, -14, 0.5, 24, -5.75, 0.5, 48.5, 2.75, 0.5, 48.5 )
+polygons = [ PoolIntArray( 1, 0, 2 ), PoolIntArray( 2, 0, 3 ), PoolIntArray( 3, 0, 4 ), PoolIntArray( 6, 5, 7 ), PoolIntArray( 7, 5, 8 ), PoolIntArray( 8, 5, 9 ), PoolIntArray( 11, 10, 12 ), PoolIntArray( 12, 10, 13 ), PoolIntArray( 13, 10, 14 ), PoolIntArray( 18, 17, 15 ), PoolIntArray( 15, 17, 16 ), PoolIntArray( 20, 19, 21 ), PoolIntArray( 21, 19, 22 ), PoolIntArray( 26, 25, 23 ), PoolIntArray( 23, 25, 24 ), PoolIntArray( 30, 29, 27 ), PoolIntArray( 27, 29, 28 ), PoolIntArray( 34, 33, 31 ), PoolIntArray( 31, 33, 32 ), PoolIntArray( 38, 37, 35 ), PoolIntArray( 35, 37, 36 ), PoolIntArray( 42, 41, 39 ), PoolIntArray( 39, 41, 40 ), PoolIntArray( 46, 45, 43 ), PoolIntArray( 43, 45, 44 ), PoolIntArray( 51, 50, 47 ), PoolIntArray( 47, 50, 48 ), PoolIntArray( 48, 50, 49 ), PoolIntArray( 55, 54, 52 ), PoolIntArray( 52, 54, 53 ), PoolIntArray( 59, 58, 56 ), PoolIntArray( 56, 58, 57 ), PoolIntArray( 63, 62, 60 ), PoolIntArray( 60, 62, 61 ), PoolIntArray( 65, 64, 66 ), PoolIntArray( 66, 64, 67 ), PoolIntArray( 71, 70, 68 ), PoolIntArray( 68, 70, 69 ), PoolIntArray( 75, 74, 72 ), PoolIntArray( 72, 74, 73 ), PoolIntArray( 79, 78, 76 ), PoolIntArray( 76, 78, 77 ), PoolIntArray( 83, 82, 80 ), PoolIntArray( 80, 82, 81 ), PoolIntArray( 87, 86, 84 ), PoolIntArray( 84, 86, 85 ), PoolIntArray( 91, 90, 88 ), PoolIntArray( 88, 90, 89 ), PoolIntArray( 95, 94, 92 ), PoolIntArray( 92, 94, 93 ), PoolIntArray( 99, 98, 96 ), PoolIntArray( 96, 98, 97 ), PoolIntArray( 103, 102, 100 ), PoolIntArray( 100, 102, 101 ), PoolIntArray( 107, 106, 104 ), PoolIntArray( 104, 106, 105 ), PoolIntArray( 111, 110, 108 ), PoolIntArray( 108, 110, 109 ), PoolIntArray( 115, 114, 112 ), PoolIntArray( 112, 114, 113 ), PoolIntArray( 117, 116, 118 ), PoolIntArray( 118, 116, 119 ), PoolIntArray( 123, 122, 120 ), PoolIntArray( 120, 122, 121 ), PoolIntArray( 127, 126, 124 ), PoolIntArray( 124, 126, 125 ), PoolIntArray( 131, 130, 128 ), PoolIntArray( 128, 130, 129 ), PoolIntArray( 135, 134, 132 ), PoolIntArray( 132, 134, 133 ), PoolIntArray( 139, 138, 136 ), PoolIntArray( 136, 138, 137 ), PoolIntArray( 144, 143, 140 ), PoolIntArray( 140, 143, 141 ), PoolIntArray( 141, 143, 142 ), PoolIntArray( 148, 147, 145 ), PoolIntArray( 145, 147, 146 ), PoolIntArray( 152, 151, 149 ), PoolIntArray( 149, 151, 150 ), PoolIntArray( 154, 153, 155 ), PoolIntArray( 155, 153, 156 ), PoolIntArray( 156, 153, 157 ), PoolIntArray( 159, 158, 160 ), PoolIntArray( 160, 158, 161 ), PoolIntArray( 165, 164, 162 ), PoolIntArray( 162, 164, 163 ), PoolIntArray( 169, 168, 166 ), PoolIntArray( 166, 168, 167 ), PoolIntArray( 173, 172, 170 ), PoolIntArray( 170, 172, 171 ), PoolIntArray( 177, 176, 174 ), PoolIntArray( 174, 176, 175 ), PoolIntArray( 181, 180, 178 ), PoolIntArray( 178, 180, 179 ), PoolIntArray( 185, 184, 182 ), PoolIntArray( 182, 184, 183 ), PoolIntArray( 189, 188, 186 ), PoolIntArray( 186, 188, 187 ), PoolIntArray( 193, 192, 190 ), PoolIntArray( 190, 192, 191 ), PoolIntArray( 197, 196, 194 ), PoolIntArray( 194, 196, 195 ), PoolIntArray( 201, 200, 198 ), PoolIntArray( 198, 200, 199 ), PoolIntArray( 205, 204, 202 ), PoolIntArray( 202, 204, 203 ), PoolIntArray( 209, 208, 206 ), PoolIntArray( 206, 208, 207 ), PoolIntArray( 213, 212, 210 ), PoolIntArray( 210, 212, 211 ), PoolIntArray( 217, 216, 214 ), PoolIntArray( 214, 216, 215 ), PoolIntArray( 221, 220, 218 ), PoolIntArray( 218, 220, 219 ), PoolIntArray( 225, 224, 222 ), PoolIntArray( 222, 224, 223 ), PoolIntArray( 229, 228, 226 ), PoolIntArray( 226, 228, 227 ), PoolIntArray( 233, 232, 230 ), PoolIntArray( 230, 232, 231 ), PoolIntArray( 237, 236, 234 ), PoolIntArray( 234, 236, 235 ), PoolIntArray( 241, 240, 238 ), PoolIntArray( 238, 240, 239 ), PoolIntArray( 245, 244, 242 ), PoolIntArray( 242, 244, 243 ), PoolIntArray( 249, 248, 246 ), PoolIntArray( 246, 248, 247 ), PoolIntArray( 253, 252, 250 ), PoolIntArray( 250, 252, 251 ), PoolIntArray( 257, 256, 254 ), PoolIntArray( 254, 256, 255 ), PoolIntArray( 261, 260, 258 ), PoolIntArray( 258, 260, 259 ), PoolIntArray( 265, 264, 262 ), PoolIntArray( 262, 264, 263 ), PoolIntArray( 268, 267, 266 ), PoolIntArray( 271, 270, 269 ), PoolIntArray( 273, 272, 274 ), PoolIntArray( 274, 272, 277 ), PoolIntArray( 274, 277, 276 ), PoolIntArray( 274, 276, 275 ), PoolIntArray( 280, 279, 278 ), PoolIntArray( 283, 282, 281 ), PoolIntArray( 286, 285, 284 ), PoolIntArray( 288, 287, 289 ), PoolIntArray( 289, 287, 290 ), PoolIntArray( 292, 291, 293 ), PoolIntArray( 293, 291, 294 ), PoolIntArray( 294, 291, 296 ), PoolIntArray( 294, 296, 295 ), PoolIntArray( 299, 298, 300 ), PoolIntArray( 300, 298, 297 ), PoolIntArray( 303, 302, 301 ), PoolIntArray( 305, 304, 306 ), PoolIntArray( 306, 304, 307 ), PoolIntArray( 307, 304, 309 ), PoolIntArray( 307, 309, 308 ), PoolIntArray( 313, 312, 310 ), PoolIntArray( 310, 312, 311 ), PoolIntArray( 317, 316, 314 ), PoolIntArray( 314, 316, 315 ), PoolIntArray( 320, 319, 318 ), PoolIntArray( 323, 322, 321 ), PoolIntArray( 325, 324, 326 ), PoolIntArray( 326, 324, 327 ), PoolIntArray( 329, 328, 330 ), PoolIntArray( 330, 328, 331 ), PoolIntArray( 333, 332, 334 ), PoolIntArray( 334, 332, 335 ), PoolIntArray( 335, 332, 336 ), PoolIntArray( 336, 332, 337 ), PoolIntArray( 341, 340, 338 ), PoolIntArray( 338, 340, 339 ), PoolIntArray( 345, 344, 342 ), PoolIntArray( 342, 344, 343 ), PoolIntArray( 347, 346, 348 ), PoolIntArray( 348, 346, 349 ), PoolIntArray( 351, 350, 352 ), PoolIntArray( 352, 350, 353 ), PoolIntArray( 355, 354, 356 ), PoolIntArray( 356, 354, 357 ), PoolIntArray( 360, 359, 358 ), PoolIntArray( 362, 361, 363 ), PoolIntArray( 363, 361, 364 ), PoolIntArray( 366, 365, 367 ), PoolIntArray( 367, 365, 370 ), PoolIntArray( 367, 370, 368 ), PoolIntArray( 368, 370, 369 ), PoolIntArray( 372, 371, 373 ), PoolIntArray( 373, 371, 374 ), PoolIntArray( 377, 376, 375 ), PoolIntArray( 379, 378, 380 ), PoolIntArray( 380, 378, 381 ), PoolIntArray( 384, 383, 382 ), PoolIntArray( 387, 386, 385 ), PoolIntArray( 389, 388, 390 ), PoolIntArray( 390, 388, 391 ), PoolIntArray( 393, 392, 394 ), PoolIntArray( 394, 392, 397 ), PoolIntArray( 394, 397, 396 ), PoolIntArray( 394, 396, 395 ), PoolIntArray( 400, 399, 398 ), PoolIntArray( 403, 402, 401 ), PoolIntArray( 406, 405, 407 ), PoolIntArray( 407, 405, 404 ), PoolIntArray( 407, 404, 409 ), PoolIntArray( 407, 409, 408 ), PoolIntArray( 411, 410, 412 ), PoolIntArray( 412, 410, 413 ), PoolIntArray( 417, 416, 414 ), PoolIntArray( 414, 416, 415 ), PoolIntArray( 421, 420, 418 ), PoolIntArray( 418, 420, 419 ), PoolIntArray( 423, 422, 424 ), PoolIntArray( 424, 422, 425 ), PoolIntArray( 428, 427, 426 ), PoolIntArray( 431, 430, 429 ), PoolIntArray( 433, 432, 434 ), PoolIntArray( 434, 432, 435 ), PoolIntArray( 437, 436, 438 ), PoolIntArray( 438, 436, 439 ), PoolIntArray( 441, 440, 442 ), PoolIntArray( 442, 440, 445 ), PoolIntArray( 442, 445, 443 ), PoolIntArray( 443, 445, 444 ), PoolIntArray( 448, 447, 446 ), PoolIntArray( 452, 451, 449 ), PoolIntArray( 449, 451, 450 ), PoolIntArray( 456, 455, 453 ), PoolIntArray( 453, 455, 454 ), PoolIntArray( 459, 458, 457 ), PoolIntArray( 461, 460, 462 ), PoolIntArray( 462, 460, 463 ), PoolIntArray( 465, 464, 466 ), PoolIntArray( 466, 464, 467 ), PoolIntArray( 470, 469, 468 ), PoolIntArray( 472, 471, 473 ), PoolIntArray( 473, 471, 476 ), PoolIntArray( 473, 476, 474 ), PoolIntArray( 474, 476, 475 ), PoolIntArray( 478, 477, 479 ), PoolIntArray( 479, 477, 480 ), PoolIntArray( 484, 483, 481 ), PoolIntArray( 481, 483, 482 ), PoolIntArray( 486, 485, 487 ), PoolIntArray( 487, 485, 488 ), PoolIntArray( 491, 490, 489 ), PoolIntArray( 493, 492, 494 ), PoolIntArray( 494, 492, 495 ), PoolIntArray( 495, 492, 496 ), PoolIntArray( 496, 492, 497 ) ]
+
+[sub_resource type="PhysicsMaterial" id=11]
+
+[sub_resource type="BoxShape" id=12]
+
+[sub_resource type="PlaneMesh" id=13]
+
+[sub_resource type="SpatialMaterial" id=14]
+albedo_color = Color( 0.14902, 0.388235, 0.454902, 1 )
+
 [node name="Spatial" type="Spatial"]
 script = ExtResource( 6 )
-
-[node name="Boden" type="StaticBody" parent="."]
-physics_material_override = SubResource( 1 )
-
-[node name="CollisionShape" type="CollisionShape" parent="Boden"]
-transform = Transform( 50, 0, 0, 0, 0.1, 0, 0, 0, 50, 0, 0, 0 )
-shape = SubResource( 2 )
-
-[node name="MeshInstance" type="MeshInstance" parent="Boden"]
-transform = Transform( 50, 0, 0, 0, 1, 0, 0, 0, 50, 0, 0, 0 )
-mesh = SubResource( 3 )
-material/0 = SubResource( 4 )
+__meta__ = {
+"_edit_lock_": true
+}
 
 [node name="Mimi" parent="." instance=ExtResource( 1 )]
 
@@ -78,93 +73,30 @@ shadow_enabled = true
 transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 5.73797, -10.8528 )
 
 [node name="MeshInstance" type="MeshInstance" parent="Topf"]
-mesh = SubResource( 5 )
-material/0 = SubResource( 6 )
+mesh = SubResource( 1 )
+material/0 = SubResource( 2 )
 
 [node name="CollisionShape" type="CollisionShape" parent="Topf"]
-shape = SubResource( 7 )
-
-[node name="Wände" type="Node" parent="."]
-
-[node name="Raumwände" type="Node" parent="Wände"]
-
-[node name="Wand1" parent="Wände/Raumwände" instance=ExtResource( 2 )]
-transform = Transform( 5, 0, 0, 0, 2, 0, 0, 0, 2, 0, 10, -50 )
-color = Color( 0.14902, 0.388235, 0.45098, 1 )
-
-[node name="Wand2" parent="Wände/Raumwände" instance=ExtResource( 2 )]
-transform = Transform( -2.18557e-07, 0, 2, 0, 2, 0, -5, 0, -8.74228e-08, 50, 10, 0 )
-
-[node name="Wand3" parent="Wände/Raumwände" instance=ExtResource( 2 )]
-transform = Transform( 5, 0, 0, 0, 2, 0, 0, 0, 2, 0, 10, 50 )
-
-[node name="Wand4" parent="Wände/Raumwände" instance=ExtResource( 2 )]
-transform = Transform( -2.18557e-07, 0, 2, 0, 2, 0, -5, 0, -8.74228e-08, -50, 10, 0 )
-
-[node name="Sperrwände" type="Node" parent="Wände"]
-
-[node name="Wand5" parent="Wände/Sperrwände" instance=ExtResource( 2 )]
-transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -24, 5, -13 )
-color = Color( 0.458824, 0.0588235, 0.662745, 1 )
-
-[node name="Wand6" parent="Wände/Sperrwände" instance=ExtResource( 2 )]
-transform = Transform( -4.37114e-08, 0, 1, 0, 1, 0, -1, 0, -4.37114e-08, -34, 5, -23 )
-color = Color( 0.458824, 0.0588235, 0.662745, 1 )
-
-[node name="Wand7" parent="Wände/Sperrwände" instance=ExtResource( 2 )]
-transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 12.3493, 5, -13 )
-color = Color( 0.458824, 0.0588235, 0.662745, 1 )
-
-[node name="Wand8" parent="Wände/Sperrwände" instance=ExtResource( 2 )]
-transform = Transform( 0.707107, 0, 0.707107, 0, 1, 0, -0.707107, 0, 0.707107, 9.34929, 5, 14 )
-color = Color( 0.458824, 0.0588235, 0.662745, 1 )
-
-[node name="Wand9" parent="Wände/Sperrwände" instance=ExtResource( 2 )]
-transform = Transform( -0.707107, 0, 0.707107, 0, 1, 0, -0.707107, 0, -0.707107, -20.6507, 5, 16 )
-color = Color( 0.458824, 0.0588235, 0.662745, 1 )
-
-[node name="Schränke" type="Node" parent="Wände"]
-
-[node name="Schrank" parent="Wände/Schränke" instance=ExtResource( 2 )]
-transform = Transform( -2.62268e-08, 0, 1, 0, 0.8, 0, -0.6, 0, -4.37114e-08, 11.8303, 5, -20.1655 )
-color = Color( 0.286275, 0.14902, 0.0392157, 0.745098 )
-
-[node name="Schrank2" parent="Wände/Schränke" instance=ExtResource( 2 )]
-transform = Transform( -2.62268e-08, 0, 1, 0, 0.8, 0, -0.6, 0, -4.37114e-08, -26.2349, 5, 2.06388 )
-color = Color( 0.286275, 0.14902, 0.0392157, 0.745098 )
-
-[node name="Schrank3" parent="Wände/Schränke" instance=ExtResource( 2 )]
-transform = Transform( -2.62268e-08, 0, 1, 0, 0.8, 0, -0.6, 0, -4.37114e-08, -5.44749, 5, 28.8768 )
-color = Color( 0.286275, 0.14902, 0.0392157, 0.745098 )
-
-[node name="Schrank4" parent="Wände/Schränke" instance=ExtResource( 2 )]
-transform = Transform( -0.424264, 0, 0.707107, 0, 0.8, 0, -0.424264, 0, -0.707107, 28.5525, 5, 0.876839 )
-color = Color( 0.286275, 0.14902, 0.0392157, 0.745098 )
-
-[node name="Schrank5" parent="Wände/Schränke" instance=ExtResource( 2 )]
-transform = Transform( -0.424264, 0, 0.707107, 0, 0.8, 0, -0.424264, 0, -0.707107, 14.5525, 5, 18.8768 )
-color = Color( 0.286275, 0.14902, 0.0392157, 0.745098 )
-
-[node name="Regal" parent="Wände/Schränke" instance=ExtResource( 7 )]
-transform = Transform( -0.707107, 0, -0.707107, 0, 1, 0, 0.707107, 0, -0.707107, 9, 0, 13 )
+shape = SubResource( 3 )
 
 [node name="WorldEnvironment" type="WorldEnvironment" parent="."]
-environment = SubResource( 9 )
+environment = SubResource( 5 )
 
 [node name="Ball" type="RigidBody" parent="."]
 transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -4.40652, 7.28473, -15.5359 )
 
 [node name="MeshInstance" type="MeshInstance" parent="Ball"]
 transform = Transform( 2, 0, 0, 0, 2, 0, 0, 0, 2, 0, 0, 0 )
-mesh = SubResource( 10 )
-material/0 = SubResource( 11 )
+mesh = SubResource( 6 )
+material/0 = SubResource( 7 )
 
 [node name="CollisionShape" type="CollisionShape" parent="Ball"]
 transform = Transform( 2, 0, 0, 0, 2, 0, 0, 0, 2, 0, 0, 0 )
-shape = SubResource( 12 )
+shape = SubResource( 8 )
 
 [node name="Maus" parent="." instance=ExtResource( 3 )]
-transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 7.63432, 0.2, -25.6071 )
+transform = Transform( 0.907367, 0, -0.420339, 0, 1, 0, 0.420339, 0, 0.907367, -31.8105, 0.2, -15.4692 )
+targetPath = NodePath("../Mimi")
 
 [node name="RichTextLabel" type="RichTextLabel" parent="."]
 visible = false
@@ -172,13 +104,92 @@ margin_left = 860.0
 margin_top = 490.0
 margin_right = 1060.0
 margin_bottom = 590.0
-custom_fonts/normal_font = SubResource( 13 )
+custom_fonts/normal_font = SubResource( 9 )
 text = "Maus gefangen! Spiel gewonnen!"
 fit_content_height = true
 script = ExtResource( 5 )
 __meta__ = {
 "_edit_use_anchors_": false
 }
+
+[node name="LevelGeometry" type="NavigationMeshInstance" parent="."]
+navmesh = SubResource( 10 )
+
+[node name="Boden" type="StaticBody" parent="LevelGeometry"]
+physics_material_override = SubResource( 11 )
+
+[node name="CollisionShape" type="CollisionShape" parent="LevelGeometry/Boden"]
+transform = Transform( 50, 0, 0, 0, 0.1, 0, 0, 0, 50, 0, 0, 0 )
+shape = SubResource( 12 )
+
+[node name="MeshInstance" type="MeshInstance" parent="LevelGeometry/Boden"]
+transform = Transform( 50, 0, 0, 0, 1, 0, 0, 0, 50, -3.19296, 0.0914001, -3.38469 )
+mesh = SubResource( 13 )
+material/0 = SubResource( 14 )
+
+[node name="Wände" type="Node" parent="LevelGeometry"]
+
+[node name="Raumwände" type="Node" parent="LevelGeometry/Wände"]
+
+[node name="Wand1" parent="LevelGeometry/Wände/Raumwände" instance=ExtResource( 2 )]
+transform = Transform( 5, 0, 0, 0, 2, 0, 0, 0, 2, 0, 10, -50 )
+color = Color( 0.14902, 0.388235, 0.45098, 1 )
+
+[node name="Wand2" parent="LevelGeometry/Wände/Raumwände" instance=ExtResource( 2 )]
+transform = Transform( -2.18557e-07, 0, 2, 0, 2, 0, -5, 0, -8.74228e-08, 50, 10, 0 )
+
+[node name="Wand3" parent="LevelGeometry/Wände/Raumwände" instance=ExtResource( 2 )]
+transform = Transform( 5, 0, 0, 0, 2, 0, 0, 0, 2, 0, 10, 50 )
+
+[node name="Wand4" parent="LevelGeometry/Wände/Raumwände" instance=ExtResource( 2 )]
+transform = Transform( -2.18557e-07, 0, 2, 0, 2, 0, -5, 0, -8.74228e-08, -50, 10, 0 )
+
+[node name="Sperrwände" type="Node" parent="LevelGeometry/Wände"]
+
+[node name="Wand5" parent="LevelGeometry/Wände/Sperrwände" instance=ExtResource( 2 )]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -24, 5, -13 )
+color = Color( 0.458824, 0.0588235, 0.662745, 1 )
+
+[node name="Wand6" parent="LevelGeometry/Wände/Sperrwände" instance=ExtResource( 2 )]
+transform = Transform( -4.37114e-08, 0, 1, 0, 1, 0, -1, 0, -4.37114e-08, -34, 5, -23 )
+color = Color( 0.458824, 0.0588235, 0.662745, 1 )
+
+[node name="Wand7" parent="LevelGeometry/Wände/Sperrwände" instance=ExtResource( 2 )]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 12.3493, 5, -13 )
+color = Color( 0.458824, 0.0588235, 0.662745, 1 )
+
+[node name="Wand8" parent="LevelGeometry/Wände/Sperrwände" instance=ExtResource( 2 )]
+transform = Transform( 0.707107, 0, 0.707107, 0, 1, 0, -0.707107, 0, 0.707107, 9.34929, 5, 14 )
+color = Color( 0.458824, 0.0588235, 0.662745, 1 )
+
+[node name="Wand9" parent="LevelGeometry/Wände/Sperrwände" instance=ExtResource( 2 )]
+transform = Transform( -0.707107, 0, 0.707107, 0, 1, 0, -0.707107, 0, -0.707107, -20.6507, 5, 16 )
+color = Color( 0.458824, 0.0588235, 0.662745, 1 )
+
+[node name="Schränke" type="Node" parent="LevelGeometry/Wände"]
+
+[node name="Schrank" parent="LevelGeometry/Wände/Schränke" instance=ExtResource( 2 )]
+transform = Transform( -2.62268e-08, 0, 1, 0, 0.8, 0, -0.6, 0, -4.37114e-08, 11.83, 5, -20.166 )
+color = Color( 0.286275, 0.14902, 0.0392157, 0.745098 )
+
+[node name="Schrank2" parent="LevelGeometry/Wände/Schränke" instance=ExtResource( 2 )]
+transform = Transform( -2.62268e-08, 0, 1, 0, 0.8, 0, -0.6, 0, -4.37114e-08, -26.2349, 5, 2.06388 )
+color = Color( 0.286275, 0.14902, 0.0392157, 0.745098 )
+
+[node name="Schrank3" parent="LevelGeometry/Wände/Schränke" instance=ExtResource( 2 )]
+transform = Transform( -2.62268e-08, 0, 1, 0, 0.8, 0, -0.6, 0, -4.37114e-08, -5.44749, 5, 28.8768 )
+color = Color( 0.286275, 0.14902, 0.0392157, 0.745098 )
+
+[node name="Schrank4" parent="LevelGeometry/Wände/Schränke" instance=ExtResource( 2 )]
+transform = Transform( -0.424264, 0, 0.707107, 0, 0.8, 0, -0.424264, 0, -0.707107, 28.5525, 5, 0.876839 )
+color = Color( 0.286275, 0.14902, 0.0392157, 0.745098 )
+
+[node name="Schrank5" parent="LevelGeometry/Wände/Schränke" instance=ExtResource( 2 )]
+transform = Transform( -0.424264, 0, 0.707107, 0, 0.8, 0, -0.424264, 0, -0.707107, 14.5525, 5, 18.8768 )
+color = Color( 0.286275, 0.14902, 0.0392157, 0.745098 )
+
+[node name="Regal" parent="LevelGeometry/Wände/Schränke" instance=ExtResource( 7 )]
+transform = Transform( 0.790198, 0, 0.612852, 0, 1, 0, -0.612852, 0, 0.790198, -12.1618, 0, -14.3966 )
 
 [connection signal="mouseCaught" from="Maus" to="Mimi" method="_on_Maus_mouseCaught"]
 [connection signal="mouseCaught" from="Maus" to="RichTextLabel" method="_on_Maus_mouseCaught"]
